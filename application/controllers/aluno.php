@@ -9,6 +9,8 @@ class Aluno extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->helper('array');
+
+		/* validação dos formulários */
 		$this->load->library('form_validation');
 
 		$this->load->library('session');
@@ -32,6 +34,9 @@ class Aluno extends CI_Controller {
 
 	public function novo(){
 
+		$this->form_validation->set_rules('nome','Nome','trim|required|alpha');
+		
+
 		$dados = array(
 			'titulo' => 'Novo Aluno - Controle Escolar',
 			'ondeesta' => 'Novo Aluno',
@@ -39,7 +44,14 @@ class Aluno extends CI_Controller {
 			'tela' => 'novo'
 		);
 
+		if($this->form_validation->run() == TRUE){
+			echo 'tuto ok';
+		}
+
+		
+
 		$this->load->view('aluno',$dados);
+			
 	}
 
 	public function cadastrados(){
