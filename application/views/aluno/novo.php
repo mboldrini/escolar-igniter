@@ -14,48 +14,22 @@
           <div class="row">      
             <div class="col-md-12">
 
-              <?php echo validation_errors('<p>','</p>'); ?>
+             
+
+
+              <?php echo validation_errors(
+                  '<div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">
+                        &times;
+                      </span>
+                    </button>'
+                ,
+                  '</div>'
+                ); 
+              ?>
 
               <?php echo form_open('aluno/novo')?>
-
-              <?php 
-
-                $turma = array(
-                  'id' => 'turma',
-                  'placeholder' => 'Turma',
-                  'class' => 'form-control',
-                  'type' => 'text'
-                );
-
-                $login = array(
-                  'id' => 'login',
-                  'placeholder' => 'Login',
-                  'class' => 'form-control',
-                  'type' => 'text'
-                );
-
-                $email = array(
-                  'id' => 'email',
-                  'placeholder' => 'Email',
-                  'class' => 'form-control',
-                  'type' => 'email'
-                );
-
-                $observacoes = array(
-                  'id' => 'observacoes',
-                  'placeholder' => 'Observações',
-                  'class' => 'form-control',
-                  'type' => 'textarea'
-                );
-
-                $senha = array(
-                  'id' => 'senha',
-                  'placeholder' => 'Senha',
-                  'class' => 'form-control',
-                  'type' => 'password'
-                );
-
-               ?>
 
                 <div class="col-md-8">
 
@@ -63,13 +37,14 @@
                     <label for="codigo"><?php echo form_label('Código:', 'codigo') ?></label>
                     <div class="col-md-3">
                       <?php echo form_input(
-                            array(
-                              'name'=>'codigo',
-                              'type'=>'number',
-                              'placeholder'=>'Código do aluno'
-                              ),
-                              set_value('codigo'),
-                              'class="form-control"') 
+                        array(
+                          'name'=>'codigo',
+                          'type'=>'number',
+                          'placeholder'=>'Código do aluno'
+                        ),
+                        
+                        set_value('codigo'),
+                          'class="form-control"') 
                       ?>
                     </div>
                   </div>
@@ -78,13 +53,14 @@
                     <label for="nome"><?php echo form_label('Nome:', 'lblNome') ?></label>
                     <div class="col-md-8">
                       <?php echo form_input(
-                            array(
-                              'name'=>'nome',
-                              'type'=>'text',
-                              'placeholder'=>'Nome do Aluno'
-                            ),
-                            set_value('nome'),
-                            'class="form-control"')
+                        array(
+                          'name'=>'nome',
+                          'type'=>'text',
+                          'placeholder'=>'Nome do Aluno'
+                        ),
+                        
+                        set_value('nome'),
+                          'class="form-control"')
                       ?>
                     </div>
                   </div>
@@ -93,12 +69,13 @@
                     <label for="nome"><?php echo form_label('Data de nascimento:', 'data_nasc') ?></label>
                     <div class="col-md-4">
                       <?php echo form_input(
-                            array(
-                              'name'=>'data_nasc',
-                              'type'=>'date'
-                            ),
-                            set_value('data_nasc'),
-                            'class="form-control"')
+                        array(
+                          'name'=>'data_nasc',
+                          'type'=>'date'
+                        ),
+                        
+                        set_value('data_nasc'),
+                          'class="form-control"')
                       ?>
                     </div>
                   </div>
@@ -107,13 +84,13 @@
                     <label for="nome"><?php echo form_label('Curso:', 'curso') ?></label>
                     <div class="col-md-8">
                       <?php echo form_input(
-                            array(
-                              'name'=>'curso',
-                              'type'=>'text',
-                              'placeholder'=>'Curso'),
+                        array(
+                          'name'=>'curso',
+                          'type'=>'text',
+                          'placeholder'=>'Curso'),
                             
-                              set_value('curso'),
-                              'class="form-control"' ) 
+                        set_value('curso'),
+                          'class="form-control"' ) 
                       ?>
                     </div>
                   </div>
@@ -121,35 +98,80 @@
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Turma:', 'turma') ?></label>
                     <div class="col-md-8">
-                      <?php echo form_input($turma) ?>
+                      <?php echo form_input(
+                        array(
+                          'name'=>'turma',
+                          'type'=>'text',
+                          'placeholder'=>'Turma'
+                        ),
+
+                        set_value('turma'),
+                          'class="form-control"')
+                      ?>
                     </div>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Email:', 'email') ?></label>
                     <div class="col-md-8">
-                      <?php echo form_input($email) ?>
+                      <?php echo form_input(
+                        array(
+                          'name'=>'email',
+                          'type'=>'email',
+                          'placeholder'=>'Email do Aluno'
+                        ),
+
+                        set_value('email'),
+                          'class="form-control"')
+                      ?>
                     </div>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Login:', 'login') ?></label>
                     <div class="col-md-6">
-                      <?php echo form_input($login) ?>
+                      <?php echo form_input(
+                        array(
+                          'name'=>'login',
+                          'type'=>'text',
+                          'placeholder'=>'Login de acesso do Aluno'
+                        ),
+
+                        set_value('login'),
+                          'class="form-control"')
+                      ?>
                     </div>
                   </div>                 
 
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Senha:', 'senha') ?></label>
                     <div class="col-md-4">
-                      <?php echo form_input($senha) ?>
+                      <?php echo form_input(
+                        array(
+                          'name'=>'senha',
+                          'type'=>'password',
+                          'placeholder'=>'Senha inicial para o usuário'
+                        ),
+
+                        set_value('senha'),
+                          'class="form-control"')
+                      ?>
                     </div>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Observações:', 'observacoes') ?></label>
                     <div class="col-md-8">
-                      <?php echo form_textarea($observacoes) ?>
+                      <?php echo form_textarea(
+                        array(
+                          'name'=>'observacoes',
+                          'type'=>'text-area',
+                          'placeholder'=>'Observações'
+                        ),
+
+                        set_value('observacoes'),
+                          'class="form-control"')
+                      ?>
                     </div>
                   </div>
 
