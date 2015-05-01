@@ -8,7 +8,7 @@ class Aluno_model extends CI_Model{
 			$this->db->insert('aluno',$dados);
 
 			/* se deu tudo certo envia para a view uma mensagem de sucesso */
-			$this->session->set_flashdata('cadastrook','Cadastro efetuado com sucesso!');
+			$this->session->set_flashdata('cadastrook','Uhul! Um novo aluno foi cadastrado no sistema! - <div class="fa fa-smile-o"></div>');
 
 			/* redireciona para a view de novo aluno já mostrando a mensagem de sucesso e limpa os dados */
 			redirect('aluno/novo');

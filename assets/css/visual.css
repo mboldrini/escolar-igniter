@@ -25,6 +25,10 @@ h1.page-header {
 	margin-top: -5px;
 }
 
+.fa-pencil-square:before, .fa-trash-o:before{
+	padding-right: 5px;
+}
+
 
 .tab-edit{
 	width: 2%;

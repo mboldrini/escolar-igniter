@@ -21,12 +21,12 @@
                     <tr>
                       <th>Código</th>
                       <th>Nome</th>
-                      <th>Idade</th>
+                      <th>Data de Nasc.</th>
                       <th>Turma</th>
                       <th>Turno</th>
                       <th>Email</th>
-                      <th>Editar</th>
-                      <th>Excluir</th>
+                      <th class='col-md-1'>Editar</th>
+                      <th class='col-md-1'>Excluir</th>
                     </tr>
                   </thead>
                   
@@ -34,15 +34,21 @@
                     foreach($alunos as $aluno){
                       echo '<tbody>';
 
-                      echo '<td><a href="#">'.$aluno->codigo.'</a></td>';
+                      echo '<td>'.$aluno->codigo.'</td>';
                       echo '<td><a href="#">'.$aluno->nome.'</a></td>';
-                      echo '<td><a href="#">'.$aluno->codigo.'</a></td>';
+                      echo '<td>'.$aluno->data_nasc.'</td>';
                       echo '<td><a href="#">'.$aluno->turma.'</a></td>';
                       echo '<td><a href="#">'.$aluno->codigo.'</a></td>';
                       echo '<td><a href="#">'.$aluno->email.'</a></td>';
 
-                      echo '<td><a href="#">EDITAR</a></td>';
-                      echo '<td><a href="#">EXCLUIR</a></td>';
+                      echo '<td>
+                        <a href="#" title="Editar">
+                          <button type="button" class="btn btn-primary fa fa-pencil-square">Editar</button>
+                        </a></td>';
+                      echo '<td>
+                        <a href="#" title="Excluir">
+                          <button type="button" class="btn btn-danger fa fa-trash-o">Excluir</button>
+                        </a></td>';
 
 
                       echo '</tbody>';

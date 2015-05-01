@@ -47,23 +47,37 @@ class Aluno extends CI_Controller {
 		$this->form_validation->set_rules('data_nasc','Data de Nascimento','trim|required');
 		
 		/* course */
+		//$this->form_validation->set_message('curso','required','Ops!, Você esqueçeu de informar o curso que o aluno estuda!');	
 		$this->form_validation->set_rules('curso','Curso','trim|required');
 		
 		/* class */
+		//$this->form_validation->set_message('turma','required','Ops!, Você esqueçeu de informar a turma que o aluno estuda!');		
 		$this->form_validation->set_rules('turma','Turma','trim|required');
 		
 		/* email */
-		$this->form_validation->set_message('is_unique','Ops!, esse email já está cadastrado no sistema! - Ou será que esse Aluno já está cadastrado no sistema?');
+		//$this->form_validation->set_message('is_unique','Ops!, esse email já está cadastrado no sistema!');
 		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[aluno.email]');
 		
 		/* login */
 		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric');
 		
 		/* default password */
+		//$this->form_validation->set_message('required','Ops!, Você esqueçeu de digitar a senha padrão de acesso ao sistema!');
 		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
 		
 		/* observations */
 		$this->form_validation->set_rules('observacoes','Observações','trim');
+
+		/* inicia o form validation */
+		if($this->form_validation->run() == TRUE){
+			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes'),$this->input->post() );
+			
+			/* criptografando a senha em md5 */
+			$dados['senha'] = md5($dados['senha']);
+
+			/* chama o model de alunos, e a função de inserção no DB */
+			$this->Aluno_model->do_insert($dados);
+		}	
 
 		/*****************************************************
 		* envia para a view algumas informações, como:
@@ -80,25 +94,12 @@ class Aluno extends CI_Controller {
 		);
 		/* carrega a view e passa as informações usando a variável dados */
 		$this->load->view('aluno',$dados);
-
-		/* inicia o form validation */
-		if($this->form_validation->run() == TRUE){
-			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes'),$this->input->post() );
-			
-			/* criptografando a senha em md5 */
-			$dados['senha'] = md5($dados['senha']);
-
-			/* chama o model de alunos, e a função de inserção no DB */
-			$this->Aluno_model->do_insert($dados);
-		}		
+	
 			
 	}
 
 
 	public function cadastrados(){
-
-
-
 
 		/*****************************************************
 		* envia para a view algumas informações, como:
