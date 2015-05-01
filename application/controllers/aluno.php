@@ -13,11 +13,14 @@ class Aluno extends CI_Controller {
 		/* validação dos formulários */
 		$this->load->library('form_validation');
 
+		/* session do flash data de aviso de cadastro efetuado com sucesso no model*/
 		$this->load->library('session');
 
 		//função de criação de tabela html no retrieve
 		$this->load->library('table');
-		
+
+		/* carrega o model aluno com as funções do DB */
+		$this->load->model('Aluno_model');
 
 	}
 
@@ -35,33 +38,32 @@ class Aluno extends CI_Controller {
 	public function novo(){
 
 		/* validação dos campos de cadastro de um novo aluno */
-		$this->form_validation->set_rules('codigo','Codigo','trim|required|alpha_numeric');
+		$this->form_validation->set_rules('codigo','Codigo','trim|required|numeric');
 		
 		/* name of student */
-		$this->form_validation->set_rules('nome','Nome','trim|required|alpha');
+		$this->form_validation->set_rules('nome','Nome','trim|required');
 		
 		/* date of birthday */
 		$this->form_validation->set_rules('data_nasc','Data de Nascimento','trim|required');
 		
 		/* course */
-		$this->form_validation->set_rules('curso','Curso','trim|required|alpha');
+		$this->form_validation->set_rules('curso','Curso','trim|required');
 		
 		/* class */
-		$this->form_validation->set_rules('turma','Turma','trim|required|alpha');
+		$this->form_validation->set_rules('turma','Turma','trim|required');
 		
 		/* email */
-		$this->form_validation->set_rules('email','Email','trim|required|valid_email');
+		$this->form_validation->set_message('is_unique','Ops!, esse email já está cadastrado no sistema! - Ou será que esse Aluno já está cadastrado no sistema?');
+		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[aluno.email]');
 		
 		/* login */
-		$this->form_validation->set_rules('login','login','trim|required|alpha');
+		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric');
 		
 		/* default password */
-		$this->form_validation->set_rules('senha','Senha','trim|required');
+		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
 		
 		/* observations */
 		$this->form_validation->set_rules('observacoes','Observações','trim');
-
-
 
 		/*****************************************************
 		* envia para a view algumas informações, como:
@@ -76,13 +78,20 @@ class Aluno extends CI_Controller {
 			'descricao' => 'Você está na página de registro de um novo aluno!',
 			'tela' => 'novo'
 		);
-
-		if($this->form_validation->run() == TRUE){
-			echo 'tuto ok';
-		}
-
 		/* carrega a view e passa as informações usando a variável dados */
 		$this->load->view('aluno',$dados);
+
+		/* inicia o form validation */
+		if($this->form_validation->run() == TRUE){
+			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes'),$this->input->post() );
+			
+			/* criptografando a senha em md5 */
+			$dados['senha'] = md5($dados['senha']);
+
+			/* chama o model de alunos, e a função de inserção no DB */
+			$this->Aluno_model->do_insert($dados);
+		}		
+
 			
 	}
 

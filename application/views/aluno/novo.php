@@ -12,10 +12,7 @@
         <section class="content">
           <!-- Small boxes (Stat box) -->
           <div class="row">      
-            <div class="col-md-12">
-
-             
-
+            <div class="col-md-12">   
 
               <?php echo validation_errors(
                   '<div class="alert alert-danger alert-dismissible" role="alert">
@@ -28,6 +25,17 @@
                   '</div>'
                 ); 
               ?>
+
+              <?php 
+                  if($this->session->flashdata('cadastrook')){
+                    echo '<div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">
+                        &times;
+                      </span>
+                    </button>'.$this->session->flashdata('cadastrook').'</div>';
+                  }
+               ?>
 
               <?php echo form_open('aluno/novo')?>
 
@@ -175,38 +183,16 @@
                     </div>
                   </div>
 
-
-
                   <div class="form-group">
                     <div class="col-md-offset-5 col-md-4">
                       <?php echo form_submit('', 'Enviar','class="btn btn-success"') ?>
                       <?php echo form_submit('', 'Cancelar','class="btn btn-danger"') ?>
                     </div>
-                  </div>
+                  </div>                  
 
-                  
-
-                </div>
-
-
-  
-
-               
-               
-
-               
-
-
+                </div>   
 
                <?php echo form_close() ?>
-
-
-
-
-                
-  
-
-
 
             </div><!-- /.col-md-12 -->
           </div><!-- /.row -->

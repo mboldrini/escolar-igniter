@@ -1,10 +1,13 @@
  <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Versão</b> Beta 2.3.0
+          <b>Versão</b> Beta 2.3.1
           <!--
             1 = Estrutural, programação envolvida no sistema
             2 = Coisas relacionadas a modificações visuais do sistema
             3 = recursos adicionados, tipo, gera um relatorio X, tem uma nova tela de cadastro, etc
+
+
+            0.0.0 => cadastro de alunos funcionando normalmente
           -->
         </div>
         <strong>Copyright &copy; 2015-2016 <a href="#">Matheus Boldrini</a>.</strong> All rights reserved.
