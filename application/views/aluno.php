@@ -4,7 +4,11 @@
 	$this->load->view('base/sidebar');
 
 
-	if($tela !='') $this -> load -> view('aluno/'.$tela);
+	if($tela != ''){
+		 $this -> load -> view('aluno/'.$tela);
+	}else{
+		redirect('/painel');
+	}
 
 
 	$this->load->view('base/footer');

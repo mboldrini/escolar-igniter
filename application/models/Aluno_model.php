@@ -15,5 +15,10 @@ class Aluno_model extends CI_Model{
 		}
 	}
 
+	// pega todos os alunos cadastrados
+	public function get_all(){
+		return $this->db->get('aluno');
+	}
+
 
 }

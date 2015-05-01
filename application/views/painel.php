@@ -1,6 +1,6 @@
 <?php 
 
-	$this -> load -> view('base/header');
+	$this ->load-> view('base/header');
 
 	$this->load->view('base/sidebar');
 

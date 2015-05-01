@@ -38,7 +38,7 @@ class Aluno extends CI_Controller {
 	public function novo(){
 
 		/* validação dos campos de cadastro de um novo aluno */
-		$this->form_validation->set_rules('codigo','Codigo','trim|required|numeric');
+		$this->form_validation->set_rules('codigo','Codigo','trim|numeric');
 		
 		/* name of student */
 		$this->form_validation->set_rules('nome','Nome','trim|required');
@@ -91,11 +91,14 @@ class Aluno extends CI_Controller {
 			/* chama o model de alunos, e a função de inserção no DB */
 			$this->Aluno_model->do_insert($dados);
 		}		
-
 			
 	}
 
+
 	public function cadastrados(){
+
+
+
 
 		/*****************************************************
 		* envia para a view algumas informações, como:
@@ -108,7 +111,8 @@ class Aluno extends CI_Controller {
 			'titulo' => 'Alunos Cadastrados - Controle Escolar',
 			'ondeesta' => 'Alunos Cadastrados',
 			'descricao' => 'Você está na página de alunos cadastrados no sistema!',
-			'tela' => 'cadastrados'
+			'tela' => 'cadastrados',
+			'alunos' => $this->Aluno_model->get_all()->result()
 		);
 
 		/* carrega a view e passa as informações usando a variável dados */
