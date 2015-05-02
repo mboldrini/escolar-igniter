@@ -68,9 +68,12 @@ class Aluno extends CI_Controller {
 		/* observations */
 		$this->form_validation->set_rules('observacoes','Observações','trim');
 
+		/*access level*/
+		$this->form_validation->set_rules('nivel_acesso','Nível de Acesso','trim');
+
 		/* inicia o form validation */
 		if($this->form_validation->run() == TRUE){
-			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes'),$this->input->post() );
+			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes','nivel_acesso'),$this->input->post() );
 			
 			/* criptografando a senha em md5 */
 			$dados['senha'] = md5($dados['senha']);

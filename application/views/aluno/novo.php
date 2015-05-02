@@ -151,8 +151,8 @@
                     </div>
                   </div>                 
 
-                  <div class="form-group col-md-12">
-                    <label for="nome"><?php echo form_label('Senha:', 'senha') ?></label>
+                  <div class="form-group col-md-12 has-success">
+                    <label for="nome" class='fa fa-check'><?php echo form_label('Senha:', 'senha') ?></label>
                     <div class="col-md-4">
                       <?php echo form_input(
                         array(
@@ -182,6 +182,24 @@
                       ?>
                     </div>
                   </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Nível de acesso:', 'nivel_acesso') ?></label>
+                    <div class="col-md-3" fieldset="disabled">
+                      <?php echo form_input(
+                        array(
+                          'name'=>'nivel_acesso',
+                          'type'=>'text',
+                          'placeholder'=>'Nível de acesso',
+                          'value'=>'1',
+                          'readonly'=>'readonly'
+                        ),
+
+                        set_value('nivel_acesso'),
+                          'class="form-control"')
+                      ?>
+                    </div>
+                  </div> 
 
                   <div class="form-group">
                     <div class="col-md-offset-5 col-md-4">

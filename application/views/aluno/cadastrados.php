@@ -39,7 +39,7 @@
                       echo '<td>'.$aluno->data_nasc.'</td>';
                       echo '<td><a href="#">'.$aluno->turma.'</a></td>';
                       echo '<td><a href="#">'.$aluno->codigo.'</a></td>';
-                      echo '<td><a href="#">'.$aluno->email.'</a></td>';
+                      echo '<td>'.$aluno->email.'</td>';
 
                       echo '<td>
                         <a href="#" title="Editar">

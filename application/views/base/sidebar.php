@@ -97,9 +97,14 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-gear"></i> Configs</a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Configs</a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Configs</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-gear"></i> Cursos <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Novo Curso</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Nova Turma</a></li>
+                  </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-gear"></i> Configuração Geral</a></li>
               </ul>
             </li>
 
