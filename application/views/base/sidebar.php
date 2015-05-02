@@ -19,7 +19,7 @@
             <li class="header">Menu principal</li>
 
             <li class="active treeview">
-              <a href="#">
+              <a href="<?php echo site_url('painel/') ?>">
                 <i class="fa fa-dashboard"></i> <span>Painel</span>
               </a>
             </li>
@@ -44,7 +44,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-plus-circle"></i> Cadastrar Funcionário</a></li>
+                <li><a href="<?php echo site_url('funcionario/novo') ?>"><i class="fa fa-plus-circle"></i> Cadastrar Funcionário</a></li>
                 <li><a href="#"><i class="fa fa-list-alt"></i> Funcionários Cadastrados</a></li>
                 <li><a href="#"><i class="fa fa-warning"></i> Cadastrar Advertência</a></li>
               </ul>

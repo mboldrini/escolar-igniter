@@ -3,6 +3,7 @@
 	padding: 0px;
 	text-decoration: none !important;
 	list-style-type: none !important;
+
 }
 ul, li, ul li, ul li ul li, a, ul li a, ul li ul li a{
 	margin: 0px;
@@ -27,6 +28,9 @@ h1.page-header {
 
 .fa-pencil-square:before, .fa-trash-o:before{
 	padding-right: 5px;
+}
+label{
+	margin-bottom: 2px;
 }
 
 

@@ -16,13 +16,11 @@ class Aluno extends CI_Controller {
 		/* session do flash data de aviso de cadastro efetuado com sucesso no model*/
 		$this->load->library('session');
 
-		//função de criação de tabela html no retrieve
-		$this->load->library('table');
-
 		/* carrega o model aluno com as funções do DB */
 		$this->load->model('Aluno_model');
 
 	}
+
 
 	public function index(){
 
@@ -35,45 +33,37 @@ class Aluno extends CI_Controller {
 		$this->load->view('aluno',$dados);
 	}
 
+
 	public function novo(){
 
 		/* validação dos campos de cadastro de um novo aluno */
 		$this->form_validation->set_rules('codigo','Codigo','trim|numeric');
-		
 		/* name of student */
 		$this->form_validation->set_rules('nome','Nome','trim|required');
-		
 		/* date of birthday */
 		$this->form_validation->set_rules('data_nasc','Data de Nascimento','trim|required');
-		
+		/*sexo*/
+		$this->form_validation->set_rules('sexo','Sexo','trim');
 		/* course */
-		//$this->form_validation->set_message('curso','required','Ops!, Você esqueçeu de informar o curso que o aluno estuda!');	
 		$this->form_validation->set_rules('curso','Curso','trim|required');
-		
 		/* class */
-		//$this->form_validation->set_message('turma','required','Ops!, Você esqueçeu de informar a turma que o aluno estuda!');		
 		$this->form_validation->set_rules('turma','Turma','trim|required');
-		
+		/* turno */
+		$this->form_validation->set_rules('turno','Turno','trim|required');
 		/* email */
-		//$this->form_validation->set_message('is_unique','Ops!, esse email já está cadastrado no sistema!');
 		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[aluno.email]');
-		
 		/* login */
-		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric');
-		
+		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric|is_unique[aluno.login]');
 		/* default password */
-		//$this->form_validation->set_message('required','Ops!, Você esqueçeu de digitar a senha padrão de acesso ao sistema!');
 		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
-		
 		/* observations */
 		$this->form_validation->set_rules('observacoes','Observações','trim');
-
 		/*access level*/
 		$this->form_validation->set_rules('nivel_acesso','Nível de Acesso','trim');
-
+		
 		/* inicia o form validation */
 		if($this->form_validation->run() == TRUE){
-			$dados = elements(array('codigo','nome','data_nasc','curso','turma','email','login','senha','observacoes','nivel_acesso'),$this->input->post() );
+			$dados = elements(array('codigo','nome','data_nasc','sexo','curso','turma','turno','email','login','senha','observacoes','nivel_acesso'),$this->input->post() );
 			
 			/* criptografando a senha em md5 */
 			$dados['senha'] = md5($dados['senha']);
@@ -91,13 +81,12 @@ class Aluno extends CI_Controller {
 		*****************************************************/
 		$dados = array(
 			'titulo' => 'Novo Aluno - Controle Escolar',
-			'ondeesta' => 'Novo Aluno',
+			'ondeesta' => 'Cadastrar Novo Aluno',
 			'descricao' => 'Você está na página de registro de um novo aluno!',
 			'tela' => 'novo'
 		);
 		/* carrega a view e passa as informações usando a variável dados */
-		$this->load->view('aluno',$dados);
-	
+		$this->load->view('aluno',$dados);	
 			
 	}
 
@@ -122,6 +111,47 @@ class Aluno extends CI_Controller {
 		/* carrega a view e passa as informações usando a variável dados */
 		$this->load->view('aluno',$dados);
 	}
+
+
+	public function editar(){
+
+		/* validação dos campos de cadastro de um novo aluno */
+		$this->form_validation->set_rules('codigo','Codigo','trim|numeric');
+		/* name of student */
+		$this->form_validation->set_rules('nome','Nome','trim|required');
+		/* default password */
+		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
+		
+		/* inicia o form validation */
+		if($this->form_validation->run() == TRUE){
+			$dados = elements(array('codigo','nome','senha'),$this->input->post() );
+			
+			/* criptografando a senha em md5 */
+			$dados['senha'] = md5($dados['senha']);
+
+			/* chama o model de alunos, e a função de inserção no DB */
+			$this->Aluno_model->do_update($dados,array('id'=>$this->input->post('idusuario') ) );
+		}	
+
+		/*****************************************************
+		* envia para a view algumas informações, como:
+		*	Titulo da página
+		*	Onde o usuário está
+		* 	Descrição da página
+		*	Tela a ser chamada 
+		*****************************************************/
+		$dados = array(
+			'titulo' => 'Editar Cadastro - Controle Escolar',
+			'ondeesta' => 'Editar Cadastro de Aluno',
+			'descricao' => 'Você está na página onde são feitas as atualizações no cadastro de um aluno!',
+			'tela' => 'editar'
+		);
+
+		/* carrega a view e passa as informações usando a variável dados */
+		$this->load->view('aluno',$dados);
+
+	}
+
 
 	public function advertencia(){		
 

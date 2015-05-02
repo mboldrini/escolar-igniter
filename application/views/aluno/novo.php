@@ -43,7 +43,7 @@
 
                   <div class="form-group col-md-12">
                     <label for="codigo"><?php echo form_label('Código:', 'codigo') ?></label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <?php echo form_input(
                         array(
                           'name'=>'codigo',
@@ -89,6 +89,16 @@
                   </div>
 
                   <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Sexo:', 'sexo') ?></label>
+                    <div class="col-md-4">
+                        <select name="sexo" id="sexo" class="form-control">
+                          <option value="Masculino">Masculino</option>
+                          <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Curso:', 'curso') ?></label>
                     <div class="col-md-8">
                       <?php echo form_input(
@@ -116,6 +126,18 @@
                         set_value('turma'),
                           'class="form-control"')
                       ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Turno:', 'turno') ?></label>
+                    <div class="col-md-4">
+                        <select name="turno" id="turno" class="form-control">
+                          <option value="Matutino">Matutino</option>
+                          <option value="Vespertino">Vespertino</option>
+                          <option value="Noturno">Noturno</option>
+                          <option value="Outros">Outros</option>                          
+                        </select>
                     </div>
                   </div>
 
@@ -151,8 +173,8 @@
                     </div>
                   </div>                 
 
-                  <div class="form-group col-md-12 has-success">
-                    <label for="nome" class='fa fa-check'><?php echo form_label('Senha:', 'senha') ?></label>
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Senha:', 'senha') ?></label>
                     <div class="col-md-4">
                       <?php echo form_input(
                         array(
@@ -191,7 +213,7 @@
                           'name'=>'nivel_acesso',
                           'type'=>'text',
                           'placeholder'=>'Nível de acesso',
-                          'value'=>'1',
+                          'value'=>'Aluno',
                           'readonly'=>'readonly'
                         ),
 
@@ -202,9 +224,9 @@
                   </div> 
 
                   <div class="form-group">
-                    <div class="col-md-offset-5 col-md-4">
+                    <div class=" col-md-4">
                       <?php echo form_submit('', 'Enviar','class="btn btn-success"') ?>
-                      <?php echo form_submit('', 'Cancelar','class="btn btn-danger"') ?>
+                      <?php echo form_reset('', 'Cancelar','class="btn btn-danger"') ?>
                     </div>
                   </div>                  
 

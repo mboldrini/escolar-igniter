@@ -14,6 +14,17 @@
           <div class="row">
       
             <div class="col-md-12">
+
+              <?php 
+                  if($this->session->flashdata('edicaook')){
+                    echo '<div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">
+                        &times;
+                      </span>
+                    </button>'.$this->session->flashdata('edicaook').'</div>';
+                  }
+               ?>
               
               <div class="table-responsive">
                 <table class="table table-striped">
@@ -30,30 +41,47 @@
                     </tr>
                   </thead>
                   
-                  <?php 
-                    foreach($alunos as $aluno){
-                      echo '<tbody>';
+                  <?php foreach($alunos as $aluno){ ?>
 
-                      echo '<td>'.$aluno->codigo.'</td>';
-                      echo '<td><a href="#">'.$aluno->nome.'</a></td>';
-                      echo '<td>'.$aluno->data_nasc.'</td>';
-                      echo '<td><a href="#">'.$aluno->turma.'</a></td>';
-                      echo '<td><a href="#">'.$aluno->codigo.'</a></td>';
-                      echo '<td>'.$aluno->email.'</td>';
+                      <tbody>
+                        <td>
+                          <?php echo $aluno->codigo ?>
+                        </td>
+                        <td>
+                          <a href="#">
+                            <?php echo $aluno->nome ?>
+                          </a>
+                        </td>
+                        <td>
+                          <?php echo $aluno->data_nasc ?>
+                        </td>
+                        <td>
+                          <a href="#">
+                            <?php echo $aluno->turma ?>
+                          </a>
+                        </td>
+                        <td>
+                          <a href="#">
+                            <?php echo $aluno->turno ?>
+                          </a>
+                        </td>
+                        <td>
+                          <?php echo $aluno->email ?>
+                        </td>
 
-                      echo '<td>
-                        <a href="#" title="Editar">
-                          <button type="button" class="btn btn-primary fa fa-pencil-square">Editar</button>
-                        </a></td>';
-                      echo '<td>
-                        <a href="#" title="Excluir">
-                          <button type="button" class="btn btn-danger fa fa-trash-o">Excluir</button>
-                        </a></td>';
-
-
-                      echo '</tbody>';
-                    }
-                  ?>
+                        <td>
+                          <a href="<?= base_url('aluno/editar/' . $aluno->id) ?>" class="btn btn-primary fa fa-pencil-square">
+                            Editar
+                          </a>
+                        </td>
+                        <td>
+                          <a href="#" class="btn btn-danger fa fa-trash-o">
+                            Editar
+                          </a>
+                        </td>
+                      </tbody>
+                   <?php } ?>    
+  
 
               </table>
             </div>
