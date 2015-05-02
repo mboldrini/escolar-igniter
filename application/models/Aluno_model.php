@@ -51,5 +51,10 @@ class Aluno_model extends CI_Model{
 		}
 	}
 
+	/* seleciona os cursos da tabela cursos */
+	public function get_cursos(){
+		return $this->db->get('curso');
+	}
+
 
 }

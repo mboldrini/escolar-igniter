@@ -100,16 +100,12 @@
 
                   <div class="form-group col-md-12">
                     <label for="nome"><?php echo form_label('Curso:', 'curso') ?></label>
-                    <div class="col-md-8">
-                      <?php echo form_input(
-                        array(
-                          'name'=>'curso',
-                          'type'=>'text',
-                          'placeholder'=>'Curso'),
-                            
-                        set_value('curso'),
-                          'class="form-control"' ) 
-                      ?>
+                    <div class="col-md-4">
+                      <select name="curso" id="curso" class="form-control">
+                        <?php foreach ($cursos as $curso) { ?>
+                            <option value="<?php echo $curso->curso ?>"><?php echo $curso->curso ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
                   </div>
 

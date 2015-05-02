@@ -53,7 +53,7 @@
 
                 <div class="col-md-8">
 
-                  <div class="form-group col-md-12">
+                <div class="form-group col-md-12">
                     <label for="codigo"><?php echo form_label('Código:', 'codigo') ?></label>
                     <div class="col-md-4">
                       <?php echo form_input(
@@ -61,7 +61,8 @@
                           'name'=>'codigo',
                           'type'=>'number',
                           'placeholder'=>'Código do aluno'
-                        ),                        
+                        ),
+                        
                         set_value('codigo',$query->codigo),
                           'class="form-control"') 
                       ?>
@@ -76,23 +77,130 @@
                           'name'=>'nome',
                           'type'=>'text',
                           'placeholder'=>'Nome do Aluno'
-                        ),                        
+                        ),
+                        
                         set_value('nome',$query->nome),
                           'class="form-control"')
                       ?>
                     </div>
                   </div>
-         
+
                   <div class="form-group col-md-12">
-                    <label for="nome"><?php echo form_label('Senha:', 'senha') ?></label>
+                    <label for="nome"><?php echo form_label('Data de nascimento:', 'data_nasc') ?></label>
                     <div class="col-md-4">
                       <?php echo form_input(
                         array(
-                          'name'=>'senha',
-                          'type'=>'password',
-                          'placeholder'=>'Senha inicial para o usuário'
+                          'name'=>'data_nasc',
+                          'type'=>'date'
                         ),
-                        set_value('senha'),
+                        
+                        set_value('data_nasc',$query->data_nasc),
+                          'class="form-control"')
+                      ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Sexo:', 'sexo') ?></label>
+                    <div class="col-md-4">
+                        <select name="sexo" id="sexo" class="form-control">
+                          <option value="Masculino">Masculino</option>
+                          <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Curso:', 'curso') ?></label>
+                    <div class="col-md-4">
+                      <select name="curso" id="curso" class="form-control">
+                        <?php foreach ($cursos as $curso) { ?>
+                            <option value="<?php echo $curso->curso ?>"><?php echo $curso->curso ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Turma:', 'turma') ?></label>
+                    <div class="col-md-8">
+                      <?php echo form_input(
+                        array(
+                          'name'=>'turma',
+                          'type'=>'text',
+                          'placeholder'=>'Turma'
+                        ),
+
+                        set_value('turma',$query->turma),
+                          'class="form-control"')
+                      ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Turno:', 'turno') ?></label>
+                    <div class="col-md-4">
+                        <select name="turno" id="turno" class="form-control">
+                          <option value="Matutino">Matutino</option>
+                          <option value="Vespertino">Vespertino</option>
+                          <option value="Noturno">Noturno</option>
+                          <option value="Outros">Outros</option>                          
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Email:', 'email') ?></label>
+                    <div class="col-md-8">
+                      <?php echo form_input(
+                        array(
+                          'name'=>'email',
+                          'type'=>'email',
+                          'placeholder'=>'Email do Aluno',                          
+                          'readonly'=>'readonly'
+                        ),
+
+                        set_value('email',$query->email),
+                          'class="form-control"')
+                      ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Login:', 'login') ?></label>
+                    <div class="col-md-6">
+                      <?php echo form_input(
+                        array(
+                          'name'=>'login',
+                          'type'=>'text',
+                          'placeholder'=>'Login de acesso do Aluno',                          
+                          'readonly'=>'readonly'
+                        ),
+
+                        set_value('login',$query->login),
+                          'class="form-control"')
+                      ?>
+                    </div>
+                  </div>                 
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Senha:', 'senha') ?></label>
+                    <div class="col-md-4">
+                      <a class="btn btn-default" href="#" role="button">Trocar Senha</a>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="nome"><?php echo form_label('Observações:', 'observacoes') ?></label>
+                    <div class="col-md-8">
+                      <?php echo form_textarea(
+                        array(
+                          'name'=>'observacoes',
+                          'type'=>'text-area',
+                          'placeholder'=>'Observações'
+                        ),
+
+                        set_value('observacoes',$query->observacoes),
                           'class="form-control"')
                       ?>
                     </div>

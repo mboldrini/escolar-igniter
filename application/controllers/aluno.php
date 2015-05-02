@@ -83,7 +83,8 @@ class Aluno extends CI_Controller {
 			'titulo' => 'Novo Aluno - Controle Escolar',
 			'ondeesta' => 'Cadastrar Novo Aluno',
 			'descricao' => 'Você está na página de registro de um novo aluno!',
-			'tela' => 'novo'
+			'tela' => 'novo',
+			'cursos' => $this->Aluno_model->get_cursos()->result()
 		);
 		/* carrega a view e passa as informações usando a variável dados */
 		$this->load->view('aluno',$dados);	
@@ -119,15 +120,26 @@ class Aluno extends CI_Controller {
 		$this->form_validation->set_rules('codigo','Codigo','trim|numeric');
 		/* name of student */
 		$this->form_validation->set_rules('nome','Nome','trim|required');
-		/* default password */
-		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
+		/* date of birthday */
+		$this->form_validation->set_rules('data_nasc','Data de Nascimento','trim|required');
+		/*sexo*/
+		$this->form_validation->set_rules('sexo','Sexo','trim');
+		/* course */
+		$this->form_validation->set_rules('curso','Curso','trim|required');
+		/* class */
+		$this->form_validation->set_rules('turma','Turma','trim|required');
+		/* turno */
+		$this->form_validation->set_rules('turno','Turno','trim|required');
+		/* email */
+		$this->form_validation->set_rules('email','Email','trim|required|valid_email');
+		/* login */
+		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric');
+		/* observations */
+		$this->form_validation->set_rules('observacoes','Observações','trim');
 		
 		/* inicia o form validation */
 		if($this->form_validation->run() == TRUE){
-			$dados = elements(array('codigo','nome','senha'),$this->input->post() );
-			
-			/* criptografando a senha em md5 */
-			$dados['senha'] = md5($dados['senha']);
+			$dados = elements(array('codigo','nome','sexo','curso','turma','turno','observacoes'),$this->input->post() );
 
 			/* chama o model de alunos, e a função de inserção no DB */
 			$this->Aluno_model->do_update($dados,array('id'=>$this->input->post('idusuario') ) );
@@ -144,7 +156,8 @@ class Aluno extends CI_Controller {
 			'titulo' => 'Editar Cadastro - Controle Escolar',
 			'ondeesta' => 'Editar Cadastro de Aluno',
 			'descricao' => 'Você está na página onde são feitas as atualizações no cadastro de um aluno!',
-			'tela' => 'editar'
+			'tela' => 'editar',
+			'cursos' => $this->Aluno_model->get_cursos()->result()
 		);
 
 		/* carrega a view e passa as informações usando a variável dados */

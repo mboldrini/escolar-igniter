@@ -32,7 +32,7 @@
                     <tr>
                       <th>Código</th>
                       <th>Nome</th>
-                      <th>Data de Nasc.</th>
+                      <th>Curso</th>
                       <th>Turma</th>
                       <th>Turno</th>
                       <th>Email</th>
@@ -53,17 +53,13 @@
                           </a>
                         </td>
                         <td>
-                          <?php echo $aluno->data_nasc ?>
+                          <?php echo $aluno->curso ?>
                         </td>
                         <td>
-                          <a href="#">
-                            <?php echo $aluno->turma ?>
-                          </a>
+                          <?php echo $aluno->turma ?>                        
                         </td>
                         <td>
-                          <a href="#">
-                            <?php echo $aluno->turno ?>
-                          </a>
+                          <?php echo $aluno->turno ?>
                         </td>
                         <td>
                           <?php echo $aluno->email ?>
