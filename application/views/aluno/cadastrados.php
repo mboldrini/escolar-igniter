@@ -48,7 +48,7 @@
                           <?php echo $aluno->codigo ?>
                         </td>
                         <td>
-                          <a href="#">
+                          <a href="<?= base_url('aluno/perfil/' . $aluno->id) ?>">
                             <?php echo $aluno->nome ?>
                           </a>
                         </td>

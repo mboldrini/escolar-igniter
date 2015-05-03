@@ -1,6 +1,6 @@
  <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Versão</b> Beta 2.3.2
+          <b>Versão</b> Beta 2.3.3
           <!--
             1 = Estrutural, programação envolvida no sistema
             2 = Coisas relacionadas a modificações visuais do sistema
@@ -8,7 +8,8 @@
 
 
             0.0.1 => cadastro de alunos funcionando normalmente
-            0.0.2 => tela onde lista todos os alunos cadastrados, começei ela mas já considero pronta kk
+            0.0.2 => tela onde lista todos os alunos cadastrados - falta os combobox pegando as infos atuais do usuário no banco de dados
+            0.0.3 => tela de perfil de aluno, mas precisa ainda dos botoes funcionando e data padrão brasileiro
           -->
         </div>
         <strong>Copyright &copy; 2015-2016 <a href="#">Matheus Boldrini</a>.</strong> All rights reserved.

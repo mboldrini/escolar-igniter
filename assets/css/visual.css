@@ -26,7 +26,7 @@ h1.page-header {
 	margin-top: -5px;
 }
 
-.fa-pencil-square:before, .fa-trash-o:before{
+.fa-pencil-square:before, .fa-trash-o:before, .fa-envelope-o:before, .fa-trophy:before, .fa-pencil-square-o{
 	padding-right: 5px;
 }
 label{

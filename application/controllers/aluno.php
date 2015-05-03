@@ -53,7 +53,7 @@ class Aluno extends CI_Controller {
 		/* email */
 		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[aluno.email]');
 		/* login */
-		$this->form_validation->set_rules('login','login','trim|required|alpha_numeric|is_unique[aluno.login]');
+		$this->form_validation->set_rules('login','Login','trim|required|alpha_numeric|is_unique[aluno.login]');
 		/* default password */
 		$this->form_validation->set_rules('senha','Senha','trim|required|min_length[8]');
 		/* observations */
@@ -139,7 +139,7 @@ class Aluno extends CI_Controller {
 		
 		/* inicia o form validation */
 		if($this->form_validation->run() == TRUE){
-			$dados = elements(array('codigo','nome','sexo','curso','turma','turno','observacoes'),$this->input->post() );
+			$dados = elements(array('codigo','nome','data_nasc','sexo','curso','turma','turno','observacoes'),$this->input->post() );
 
 			/* chama o model de alunos, e a função de inserção no DB */
 			$this->Aluno_model->do_update($dados,array('id'=>$this->input->post('idusuario') ) );
@@ -180,6 +180,25 @@ class Aluno extends CI_Controller {
 			'ondeesta' => 'Advertência',
 			'descricao' => 'Cadastro de advertência para alunos',
 			'tela' => 'advertencia'
+		);
+
+		/* carrega a view e passa as informações usando a variável dados */
+		$this->load->view('aluno',$dados);
+	}
+
+	public function perfil(){
+		/*****************************************************
+		* envia para a view algumas informações, como:
+		*	Titulo da página
+		*	Onde o usuário está
+		* 	Descrição da página
+		*	Tela a ser chamada 
+		*****************************************************/		
+		$dados = array(
+			'titulo' => 'Perfil de Aluno - Controle Escolar',
+			'ondeesta' => 'Perfil de Aluno(a)',
+			'descricao' => 'Você está na página de perfil de um aluno(a)',
+			'tela' => 'perfil'
 		);
 
 		/* carrega a view e passa as informações usando a variável dados */
