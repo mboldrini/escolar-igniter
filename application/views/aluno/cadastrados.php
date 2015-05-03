@@ -6,12 +6,18 @@
             <?php echo $ondeesta ?>
             <small><?php echo $descricao ?></small>
           </h1>
+          
         </section>
 
         <!-- Main content -->
         <section class="content">
+
+          <span class="pull-right btn-tela-al-cad">
+            <a href="<?= base_url('aluno/novo/') ?>" class="btn btn-default btn-xs">Novo aluno</a>
+          </span>
+
           <!-- Small boxes (Stat box) -->
-          <div class="row">
+          <div class="row">          
       
             <div class="col-md-12">
 
@@ -72,7 +78,7 @@
                         </td>
                         <td>
                           <a href="#" class="btn btn-danger fa fa-trash-o">
-                            Editar
+                            Excluir
                           </a>
                         </td>
                       </tbody>

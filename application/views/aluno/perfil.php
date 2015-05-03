@@ -75,12 +75,15 @@
                         </tr>  
                         <tr>
                           <td>Observações:</td>
-                          <td><?php echo $query->observacoes ?></td>
+                          <td><p><?php echo $query->observacoes ?></p></td>
                         </tr>                   
                       </tbody>
                     </table>
                     
-                    <a href="#" class="btn btn-primary">Enviar Mensagem</a>
+                    <span class="label label-primary">Bom de Matemática</span>
+                    <span class="label label-success">Acima da média!</span>
+                    <span class="label label-danger">Falta bastante</span>
+                    <span class="label label-info">Comportamento bom</span>
                     
                   </div>
                 </div>

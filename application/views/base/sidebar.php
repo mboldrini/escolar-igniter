@@ -100,8 +100,10 @@
                 <li>
                   <a href="#"><i class="fa fa-gear"></i> Cursos <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Novo Curso</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Nova Turma</a></li>
+                    <li><a href="<?php echo site_url('curso/novocurso') ?>"><i class="fa fa-plus-circle"></i> Novo Curso</a></li>                    
+                    <li><a href="<?php echo site_url('curso/novaturma') ?>"><i class="fa fa-plus-circle"></i> Nova Turma</a></li>
+                    <li><a href="#"><i class="fa fa-list-alt"></i> Cursos Cadastrados</a></li>
+                    <li><a href="#"><i class="fa fa-list-alt"></i> Turmas Cadastradas</a></li>
                   </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-gear"></i> Configuração Geral</a></li>
